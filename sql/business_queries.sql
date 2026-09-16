@@ -1,5 +1,5 @@
 -- ============================================================
--- Business analysis queries. Right I do economy extra informs in money actually among this actually because like six health care and is embedded embedded on Zeni, it is down where there's nothing actually in those two years as long as you're staying in general LP one matter mentioned road is like developed people for Extoken MBTI test you don't know where MVD test is MBTI that do you know what do you know the sixteen personality they select based on a personality test a core company their test was a personality test by the fuck would they go
+-- Business analysis queries. 
 -- 1. Monthly revenue trend
 SELECT
     DATE_TRUNC('month', o.order_purchase_timestamp) AS month,
@@ -69,8 +69,7 @@ ORDER BY late_delivery_rate DESC;
 
 -- 6. RFM base table (feeds the K-Means clustering step in Python)
 -- Recency = days since last order, relative to the most recent
--- date in the dataset (Olist data is historical, so "today"
--- doesn't work — anchor to MAX(order_purchase_timestamp)).
+-- date in the dataset.
 WITH last_date AS (
     SELECT MAX(order_purchase_timestamp) AS max_date FROM dim_orders
 )
@@ -85,8 +84,3 @@ JOIN fact_order_items oi ON o.order_id = oi.order_id
 CROSS JOIN last_date ld
 WHERE o.order_status = 'delivered'
 GROUP BY c.customer_unique_id, ld.max_date;
-
-
--- 7. (add more as you build each dashboard page)
--- e.g. seller performance, repeat customer rate, payment type
--- distribution, AOV by state, category x state cross-tab...
