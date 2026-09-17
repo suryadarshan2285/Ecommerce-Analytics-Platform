@@ -136,7 +136,4 @@ Python (pandas, SQLAlchemy, scikit-learn) - PostgreSQL - SQL - Power BI (DAX)
 
 ## Author
 
-[Your name] - [LinkedIn]
-
-Project 1 of 2 in an analytics portfolio for BA/DA/DS roles. Project 2
-will pull data through a REST API instead of a static file.
+Surya Darshan - https://www.linkedin.com/in/surya-darshan-784937361/
