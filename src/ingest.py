@@ -15,11 +15,6 @@ def read_raw(filename: str) -> pd.DataFrame:
     path = os.path.join(RAW_DATA_DIR, filename)
     return pd.read_csv(path)
 
-
-# ---------------------------------------------------------------
-# Transform functions — one per table. 
-# ---------------------------------------------------------------
-
 def transform_customers(df: pd.DataFrame) -> pd.DataFrame:
     df = df.drop_duplicates(subset="customer_id")
     df = df.rename(columns={
